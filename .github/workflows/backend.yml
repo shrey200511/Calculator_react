@@ -13,12 +13,12 @@ jobs:
       - name: Build docker image
         run: docker build -t ${{ secrets.MY_SECRET}} .
       - name: save docker image
-        run: docker save -o calculator.tar calculator
+        run: docker save -o secret_123.tar secret_123
       - name:  Upload Docker image artifact
         uses: actions/upload-artifact@v4
         with:
                 name: calculator_image
-                path:  ./calculator.tar
+                path:  ./secret_123.tar
 
 
 
