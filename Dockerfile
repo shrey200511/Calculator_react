@@ -32,4 +32,3 @@ EXPOSE 5173
 
 # Serve the dist folder
 CMD ["serve", "-s", "dist", "-l", "5173"]
-

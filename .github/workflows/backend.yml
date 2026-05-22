@@ -11,7 +11,7 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v6
       - name: Build docker image
-        run: docker build -t calculator .
+        run: docker build -t ${{ secrets.MY_SECRET}} .
       - name: save docker image
         run: docker save -o calculator.tar calculator
       - name:  Upload Docker image artifact
@@ -19,3 +19,50 @@ jobs:
         with:
                 name: calculator_image
                 path:  ./calculator.tar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# on:
+#   push:
+#     branches: [main]
+# jobs:
+#   backend:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - name: Check out the code
+#         uses: actions/checkout@v4
+#       - name: Show secret is available (safe check)
+#         run: echo "Secret length: ${#API_KEY}"
+#         env:
+#             API_KEY: ${{ secrets.API_KEY }}
+      
+#       - name: Build docker image
+#         run: docker build -t calculator .
+
+
+    #   - name: save docker image
+    #     run: docker save -o calculator.tar calculator
+    #   - name:  Upload Docker image artifact
+    #     uses: actions/upload-artifact@v4
+    #     with:
+    #             name: calculator_image
+    #             path:  ./calculator.tar
+                                
